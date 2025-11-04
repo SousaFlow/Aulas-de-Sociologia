@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foco ENEM 2025 - Apostas em Sociologia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .concept-table th {
+            background-color: #0A9396;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        .concept-table td {
+            padding: 10px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        .card-header-1 { background-color: #EE9B00; }
+        .card-header-2 { background-color: #0A9396; }
+        .card-header-3 { background-color: #9B2226; }
+        .card-header-4 { background-color: #CA6702; }
+        .card-header-5 { background-color: #415A77; }
+        .shadow-strategy {
+            box-shadow: 0 10px 15px -3px rgba(65, 90, 119, 0.5), 0 4px 6px -2px rgba(65, 90, 119, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <header class="bg-[#005F73] text-white p-8 shadow-xl">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-2">FOCO ENEM 2025</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold text-[#94D2BD]">Apostas e Tendências em Sociologia</h2>
+            <p class="mt-4 text-lg max-w-3xl mx-auto">
+                Uma análise visual dos temas clássicos e das "apostas quentes" que você deve priorizar para a prova de Sociologia, com base nas tendências atuais e na estrutura do exame.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-4 md:p-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
+            <section class="bg-white rounded-lg shadow-lg p-6 md:col-span-2">
+                <h3 class="text-2xl font-bold text-[#005F73] mb-4">A Base Sólida: Os Temas de Alta Incidência</h3>
+                <p class="text-gray-700 mb-6">
+                    Antes de focar nas apostas, é crucial dominar a base. Certos temas são a espinha dorsal da prova de Sociologia no ENEM e aparecem com altíssima frequência. Eles fundamentam a compreensão de todos os outros tópicos contemporâneos.
+                </p>
+                <div class="chart-container relative w-full max-w-3xl mx-auto h-96 md:h-[450px] max-h-[500px]">
+                    <canvas id="baseChart"></canvas>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-4">
+                    Este gráfico de barras horizontais compara a frequência histórica dos pilares da Sociologia no ENEM. "Trabalho" e "Cultura" são consistentemente os mais cobrados, servindo como porta de entrada para discussões sobre desigualdade e cidadania.
+                </p>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-[#EE9B00] mb-4">Aposta 1: Trabalho e Tecnologia (Uberização)</h3>
+                <p class="text-gray-700 mb-6">
+                    Este é talvez o tema contemporâneo mais forte. A "Uberização" não é apenas sobre aplicativos, mas sobre a reconfiguração total das relações de trabalho. O ENEM adora conectar teorias clássicas (como a mais-valia de Marx) com fenômenos modernos (como a "mais-valia algorítmica").
+                </p>
+                <div class="chart-container relative w-full max-w-md mx-auto h-80 md:h-80 max-h-[350px]">
+                    <canvas id="trabalhoChart"></canvas>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-4">
+                    O gráfico de rosca ilustra os subtemas-chave dentro da "Nova Economia". A precarização é o conceito central, diretamente ligado à flexibilidade da "Gig Economy" e à gestão invisível dos algoritmos.
+                </p>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-[#0A9396] mb-4">Aposta 2: Movimentos Sociais e Identidades</h3>
+                <p class="text-gray-700 mb-6">
+                    Confirmando sua intuição, os movimentos identitários são uma aposta certeira. O ENEM tem focado cada vez mais nas lutas por reconhecimento e direitos de grupos historicamente marginalizados, exigindo que o aluno compreenda conceitos como "lugar de fala", "interseccionalidade" e "racismo estrutural".
+                </p>
+                <div class="chart-container relative w-full max-w-md mx-auto h-80 md:h-80 max-h-[350px]">
+                    <canvas id="movimentosChart"></canvas>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-4">
+                    Este gráfico de pizza demonstra a distribuição do foco dentro dos movimentos sociais. Embora o movimento antirracista e o feminismo tenham maior destaque, as pautas indígenas e LGBTQIA+ estão ganhando enorme relevância.
+                </p>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-[#9B2226] mb-4">Aposta 3: Meio Ambiente e Sociedade</h3>
+                <p class="text-gray-700 mb-6">
+                    Um tema que cresce a cada ano é a Sociologia Ambiental. A prova não cobra a biologia da questão, mas sim os impactos sociais. Conceitos como "Racismo Ambiental" (onde os impactos da degradação afetam desproporcionalmente populações pobres e negras) e os conflitos por terra são centrais.
+                </p>
+                <div class="chart-container relative w-full max-w-xl mx-auto h-96 md:h-96 max-h-[400px]">
+                    <canvas id="ambienteChart"></canvas>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-4">
+                    O gráfico de radar mapeia a criticidade dos principais conceitos socioambientais. A intersecção entre "Racismo Ambiental" e "Impactos Urbanos" (como enchentes e falta de saneamento) é um ponto de alta probabilidade.
+                </p>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-[#CA6702] mb-4">Aposta 4: Mídia, Desinformação e Democracia</h3>
+                <p class="text-gray-700 mb-6">
+                    Ligado ao tema "Tecnologia", esta aposta foca no impacto das redes sociais na esfera pública. O ENEM tende a abordar como a desinformação (fake news) e as "bolhas" algorítmicas afetam a participação política, a confiança nas instituições e a própria noção de verdade.
+                </p>
+                <div class="chart-container relative w-full max-w-xl mx-auto h-96 md:h-96 max-h-[400px]">
+                    <canvas id="midiaChart"></canvas>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-4">
+                    Este gráfico de linhas ilustra uma tendência preocupante: enquanto a percepção sobre o volume de desinformação aumenta, a confiança na mídia tradicional (essencial para a democracia) diminui, criando um vácuo explorado por discursos extremistas.
+                </p>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-lg p-6 md:col-span-2">
+                <h3 class="text-2xl font-bold text-[#005F73] mb-4">Como os Temas se Conectam?</h3>
+                <p class="text-gray-700 mb-6">
+                    Nenhum tema aparece isolado. O segredo do ENEM é a interdisciplinaridade e a conexão. As "apostas" são, na verdade, desdobramentos contemporâneos dos temas clássicos. Entender essa ligação é a chave para uma boa nota.
+                </p>
+                <div class="space-y-6">
+                    
+                    <div class="grid grid-cols-3 items-center gap-2 md:gap-4 text-center">
+                        <div class="bg-[#415A77] text-white p-3 rounded-lg shadow text-sm md:text-base">Base: Trabalho e Sociedade</div>
+                        <div class="text-3xl font-bold text-[#005F73]">→</div>
+                        <div class="bg-[#EE9B00] text-black p-3 rounded-lg shadow text-sm md:text-base">Aposta: Uberização e Precarização</div>
+                    </div>
+
+                    <div class="grid grid-cols-3 items-center gap-2 md:gap-4 text-center">
+                        <div class="bg-[#415A77] text-white p-3 rounded-lg shadow text-sm md:text-base">Base: Cidadania e Direitos</div>
+                        <div class="text-3xl font-bold text-[#005F73]">→</div>
+                        <div class="bg-[#0A9396] text-white p-3 rounded-lg shadow text-sm md:text-base">Aposta: Movimentos Identitários</div>
+                    </div>
+
+                    <div class="grid grid-cols-3 items-center gap-2 md:gap-4 text-center">
+                        <div class="bg-[#415A77] text-white p-3 rounded-lg shadow text-sm md:text-base">Base: Estratificação Social</div>
+                        <div class="text-3xl font-bold text-[#005F73]">→</div>
+                        <div class="bg-[#9B2226] text-white p-3 rounded-lg shadow text-sm md:text-base">Aposta: Racismo Ambiental</div>
+                    </div>
+
+                    <div class="grid grid-cols-3 items-center gap-2 md:gap-4 text-center">
+                        <div class="bg-[#415A77] text-white p-3 rounded-lg shadow text-sm md:text-base">Base: Cultura e Mídia</div>
+                        <div class="text-3xl font-bold text-[#005F73]">→</div>
+                        <div class="bg-[#CA6702] text-white p-3 rounded-lg shadow text-sm md:text-base">Aposta: Desinformação e Redes</div>
+                    </div>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-6">
+                    Este fluxograma, feito com HTML e Tailwind, mostra como cada "aposta quente" está diretamente enraizada em um pilar clássico da Sociologia. Estude-os em conjunto, não de forma separada.
+                </p>
+            </section>
+
+            <!-- SEÇÃO 5: MINI AULA DE REVISÃO -->
+            <section class="bg-[#005F73] text-white rounded-lg shadow-xl p-6 md:col-span-2 mt-8" id="revisao">
+                <h3 class="text-3xl font-extrabold text-[#94D2BD] mb-4 border-b border-[#94D2BD] pb-2">
+                    🎓 Mini Aula de Revisão: Conceitos e Pensadores Essenciais
+                </h3>
+                <p class="text-[#D3D3D3] mb-8">
+                    Dominar a Dialética (Passado x Contemporâneo) e os Pensadores é o que diferencia o aluno de alta performance. Use esta seção como seu mapa de argumentos para a redação e para as questões objetivas.
+                </p>
+
+                <!-- BLOCO 1: TRABALHO E UBERIZAÇÃO -->
+                <div class="mb-8 bg-white rounded-lg shadow-xl overflow-hidden">
+                    <div class="card-header-1 text-black p-4 font-bold text-xl flex items-center">
+                        <span class="mr-2 text-3xl">⚙️</span> Aposta 1: Uberização e Capitalismo Digital
+                    </div>
+                    <div class="p-4 text-gray-900">
+                        <h4 class="font-semibold text-lg mb-2 text-[#CA6702]">Paralelo Clássico x Contemporâneo</h4>
+                        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-4">
+                            <div class="p-3 bg-gray-100 rounded-lg flex-1">
+                                <p class="font-bold text-[#005F73]">CLÁSSICO (Marx)</p>
+                                <p class="text-sm">Mais-Valia: Exploração do tempo não pago do operário fabril. Relação visível de patrão-empregado.</p>
+                            </div>
+                            <div class="p-3 bg-gray-100 rounded-lg flex-1">
+                                <p class="font-bold text-[#EE9B00]">CONTEMPORÂNEO (Antunes)</p>
+                                <p class="text-sm">Mais-Valia Algorítmica: Exploração do tempo invisível (espera, deslocamento) do "uberizado", controlada pelo algoritmo. Relação disfarçada de autonomia.</p>
+                            </div>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2 text-[#CA6702]">Termos-Chave</h4>
+                        <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
+                            <li>Precarização do Trabalho (Sennett): Perda de estabilidade, segurança e direitos laborais, corroendo a capacidade de planejamento do indivíduo.</li>
+                            <li>Subordinação Disfarçada: O trabalhador é legalmente autônomo, mas funcionalmente subordinado às regras e punições da plataforma.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- BLOCO 2: MOVIMENTOS SOCIAIS E IDENTIDADES -->
+                <div class="mb-8 bg-white rounded-lg shadow-xl overflow-hidden">
+                    <div class="card-header-2 text-white p-4 font-bold text-xl flex items-center">
+                        <span class="mr-2 text-3xl">🤝</span> Aposta 2: Interseccionalidade e Lutas por Reconhecimento
+                    </div>
+                    <div class="p-4 text-gray-900">
+                        <h4 class="font-semibold text-lg mb-2 text-[#0A9396]">Conceitos Estruturais</h4>
+                        <table class="w-full concept-table rounded-lg overflow-hidden text-sm">
+                            <thead>
+                                <tr>
+                                    <th>Conceito</th>
+                                    <th>Pensador(a)</th>
+                                    <th>Explicação Sociológica</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Interseccionalidade</td>
+                                    <td>Kimberlé Crenshaw</td>
+                                    <td>As opressões (gênero, raça, classe) se cruzam, criando exclusões únicas. Ex: Ser mulher e negra é uma experiência diferente de ser só mulher ou só negra.</td>
+                                </tr>
+                                <tr>
+                                    <td>Lugar de Fala</td>
+                                    <td>Djamila Ribeiro</td>
+                                    <td>Não é silenciar quem não pertence ao grupo, mas reconhecer a autoridade e a legitimidade de quem vive determinada experiência para teorizar e se manifestar sobre ela.</td>
+                                </tr>
+                                <tr>
+                                    <td>Racismo Estrutural</td>
+                                    <td>Silvio Almeida</td>
+                                    <td>O racismo não é um "desvio de caráter" individual, mas um elemento fundamental da organização econômica e política da sociedade brasileira.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="mt-4 text-sm font-semibold text-[#005F73]">Reflexão Foucault (Biopolítica):</p>
+                        <p class="text-sm">O poder moderno administra a vida da população (corpos, saúde, natalidade). Movimentos sociais lutam para desvincular a identidade da norma biopolítica opressora.</p>
+                    </div>
+                </div>
+
+                <!-- BLOCO 3: MEIO AMBIENTE E SOCIEDADE -->
+                <div class="mb-8 bg-white rounded-lg shadow-xl overflow-hidden">
+                    <div class="card-header-3 text-white p-4 font-bold text-xl flex items-center">
+                        <span class="mr-2 text-3xl">🌳</span> Aposta 3: Racismo Ambiental e Sociedade de Risco
+                    </div>
+                    <div class="p-4 text-gray-900">
+                        <h4 class="font-semibold text-lg mb-2 text-[#9B2226]">Risco e Desigualdade</h4>
+                        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-4">
+                            <div class="p-3 bg-[#FAE1E1] rounded-lg flex-1 border border-[#AE2012]">
+                                <p class="font-bold text-[#9B2226]">SOCIEDADE DE RISCO (Ulrich Beck)</p>
+                                <p class="text-sm">Riscos (poluição, aquecimento) são produzidos pela própria modernidade industrial. Atingem a todos, mas a vulnerabilidade e os impactos são distribuídos de forma desigual.</p>
+                            </div>
+                            <div class="p-3 bg-[#FAE1E1] rounded-lg flex-1 border border-[#AE2012]">
+                                <p class="font-bold text-[#9B2226]">RACISMO AMBIENTAL (Robert Bullard)</p>
+                                <p class="text-sm">As populações minoritárias e de baixa renda são desproporcionalmente expostas a riscos ambientais (lixões, indústrias poluentes) e sofrem mais com a falta de saneamento.</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-sm font-semibold text-[#AE2012]">Exemplo ENEM:</p>
+                        <p class="text-sm">Ao invés de perguntar sobre a causa da enchente, o ENEM perguntará quem é o mais afetado pela enchente e por que isso se relaciona com a estrutura urbana e a desigualdade de classes/raça.</p>
+                    </div>
+                </div>
+
+                <!-- BLOCO 4: MÍDIA, DESINFORMAÇÃO E DEMOCRACIA -->
+                <div class="mb-8 bg-white rounded-lg shadow-xl overflow-hidden">
+                    <div class="card-header-4 text-white p-4 font-bold text-xl flex items-center">
+                        <span class="mr-2 text-3xl">📱</span> Aposta 4: Pós-Verdade e Capitalismo de Vigilância
+                    </div>
+                    <div class="p-4 text-gray-900">
+                        <h4 class="font-semibold text-lg mb-2 text-[#CA6702]">Termos Essenciais</h4>
+                        <table class="w-full concept-table rounded-lg overflow-hidden text-sm">
+                            <thead>
+                                <tr>
+                                    <th>Conceito</th>
+                                    <th>Pensador(a)</th>
+                                    <th>Reflexão Central</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Esfera Pública</td>
+                                    <td>Jürgen Habermas</td>
+                                    <td>A crise da esfera pública pela mídia e redes sociais dificulta o debate racional, essencial para a democracia.</td>
+                                </tr>
+                                <tr>
+                                    <td>Pós-Verdade</td>
+                                    <td>(Termo Sociológico)</td>
+                                    <td>O fato objetivo é menos importante que a emoção ou a crença pessoal na formação da opinião.</td>
+                                </tr>
+                                <tr>
+                                    <td>Capitalismo de Vigilância</td>
+                                    <td>Shoshana Zuboff</td>
+                                    <td>Empresas utilizam o "rastro digital" para prever e manipular o comportamento humano, transformando a experiência humana em dados para lucro.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+            <!-- FIM DA SEÇÃO DE REVISÃO -->
+
+            <!-- NOVA SEÇÃO: ESTRATÉGIAS PARA FUGIR DE PEGADINHAS -->
+            <section class="bg-[#F0F4F8] text-gray-900 rounded-lg shadow-strategy p-6 md:col-span-2 mt-8">
+                <div class="card-header-5 text-white p-4 font-bold text-xl rounded-t-lg flex items-center">
+                    <span class="mr-2 text-3xl">🎯</span> Estratégias de Leitura: Fuga das Pegadinhas do ENEM
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-700 mb-6">
+                        As questões de Humanas no ENEM frequentemente testam a sua habilidade de interpretação antes do conhecimento. Seguir um método de leitura é essencial para não cair nas armadilhas de distração e generalização.
+                    </p>
+
+                    <div class="space-y-6">
+
+                        <!-- Pegadinha 1: O ERRO DE GENERALIZAÇÃO -->
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-[#EE9B00] shadow-md">
+                            <h4 class="font-bold text-lg text-[#EE9B00] mb-2">1. Foco no Comandante (O Enunciado)</h4>
+                            <p class="text-gray-800 font-semibold mb-1">A Armadilha Comum:</p>
+                            <p class="text-sm text-gray-700">O erro é ler o texto-base, ir direto para as alternativas e escolher a que parece "verdadeira" no contexto geral da Sociologia.</p>
+                            <p class="text-gray-800 font-semibold mt-2 mb-1">Estratégia Antipegadinha:</p>
+                            <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
+                                <li>Sublinhe o Comando: Antes de ler o texto, sublinhe a parte do enunciado que diz "O que o texto apresenta como..." ou "A característica central do fenômeno descrito é...".</li>
+                                <li>Palavras-Chave do Comando: Procure por verbos e termos restritivos: principalmente, exclusivamente, apenas, o que melhor define. Eles direcionam a resposta.</li>
+                                <li>Volte ao Texto com a Pergunta: O ENEM sempre pede a resposta que está no texto ou que é a conclusão lógica direta dele. Não traga sua bagagem se ela contradizer o trecho.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Pegadinha 2: O CONHECIMENTO PELA METADE -->
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-[#9B2226] shadow-md">
+                            <h4 class="font-bold text-lg text-[#9B2226] mb-2">2. Atenção aos Distratores</h4>
+                            <p class="text-gray-800 font-semibold mb-1">A Armadilha Comum:</p>
+                            <p class="text-sm text-gray-700">As alternativas trazem conceitos ou nomes de pensadores que são verdadeiros (ex: Marx falou sobre capitalismo), mas não se aplicam ao trecho específico apresentado (que pode ser sobre Durkheim).</p>
+                            <p class="text-gray-800 font-semibold mt-2 mb-1">Estratégia Antipegadinha:</p>
+                            <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
+                                <li>Identifique a Fonte: Olhe a referência no final do texto. Ela indica o autor, o que já restringe o campo teórico (ex: citou Foucault? Busque algo sobre poder ou disciplina, não sobre luta de classes).</li>
+                                <li>Descarte Gradual (Eliminação): Marque "X" nas alternativas que contêm conceitos totalmente irrelevantes. Marque "?" naquelas que parecem corretas. Compare as que sobraram apenas com o que o texto-base afirma.</li>
+                                <li>Fuja da Extensão: Alternativas que generalizam demais (ex: "solução para todos os problemas sociais") quase sempre estão erradas. O ENEM prefere a análise crítica e o reconhecimento da complexidade.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Pegadinha 3: O DESPREZO PELO GÊNERO TEXTUAL -->
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-[#0A9396] shadow-md">
+                            <h4 class="font-bold text-lg text-[#0A9396] mb-2">3. O Olhar Sociológico (Desnaturalização)</h4>
+                            <p class="text-gray-800 font-semibold mb-1">A Armadilha Comum:</p>
+                            <p class="text-sm text-gray-700">Confundir o senso comum (aquilo que a sociedade "acha" ou "sente") com a análise científica (aquilo que a Sociologia, Antropologia ou Filosofia estuda).</p>
+                            <p class="text-gray-800 font-semibold mt-2 mb-1">Estratégia Antipegadinha:</p>
+                            <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
+                                <li>Traduza para Conceito: Sempre que ler uma situação no texto, tente "traduzi-la" para um conceito sociológico (ex: "pessoas se sentem sozinhas" = Modernidade Líquida de Bauman; "divisão de tarefas" = Divisão Social do Trabalho de Durkheim).</li>
+                                <li>Ataque a Natureza: Lembre-se: em Humanas, nada é "natural". Se uma alternativa diz que algo é "natural", "instintivo" ou "biológico" para justificar um comportamento social, é muito provável que esteja errada. O foco é sempre na construção social e cultural.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- FIM DA NOVA SEÇÃO DE ESTRATÉGIAS -->
+
+        </div>
+    </main>
+
+    <footer class="bg-[#0D1B2A] text-gray-400 p-8 mt-10">
+        <div class="max-w-7xl mx-auto text-center">
+            <p>Este infográfico é uma ferramenta de estudo baseada em análises de tendências. O ENEM é imprevisível; use isto como um guia, mas não negligencie o conteúdo completo.</p>
+            <p class_="text-sm mt-2">Design e Análise por Canvas Infographics. Boa prova!</p>
+            <!-- Neither Mermaid JS nor SVG were used in this output. All graphics are Chart.js (Canvas) or structured HTML/CSS (Tailwind/Tables). -->
+        </div>
+    </footer>
+
+    <script>
+        const chartColors = {
+            darkCyan: '#005F73',
+            mediumCyan: '#0A9396',
+            lightCyan: '#94D2BD',
+            paleYellow: '#E9D8A6',
+            orange: '#EE9B00',
+            darkOrange: '#CA6702',
+            burntOrange: '#BB3E03',
+            red: '#AE2012',
+            darkRed: '#9B2226'
+        };
+
+        const tooltipPlugin = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    }
+                },
+                legend: {
+                    labels: {
+                        color: '#001219',
+                        font: {
+                            size: 14
+                        }
+                    }
+                }
+            }
+        };
+
+        const baseCtx = document.getElementById('baseChart').getContext('2d');
+        new Chart(baseCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    ['Trabalho e', 'Sociedade'], 
+                    ['Cultura e', 'Indústria Cultural'], 
+                    ['Cidadania e', 'Direitos Políticos'], 
+                    ['Estratificação e', 'Desigualdade'],
+                    'Estado e Poder'
+                ],
+                datasets: [{
+                    label: 'Incidência Histórica no ENEM (%)',
+                    data: [30, 25, 20, 15, 10],
+                    backgroundColor: [
+                        chartColors.darkCyan,
+                        chartColors.mediumCyan,
+                        chartColors.lightCyan,
+                        chartColors.paleYellow,
+                        chartColors.orange
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...tooltipPlugin,
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        ticks: { color: '#001219' }
+                    },
+                    y: {
+                        ticks: { color: '#001219', font: { size: 12 } }
+                    }
+                }
+            }
+        });
+
+        const trabalhoCtx = document.getElementById('trabalhoChart').getContext('2d');
+        new Chart(trabalhoCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Precarização (Foco)', 'Gig Economy (Contexto)', 'Gestão por Algoritmo'],
+                datasets: [{
+                    label: 'Subtemas de Trabalho e Tecnologia',
+                    data: [50, 25, 25],
+                    backgroundColor: [
+                        chartColors.orange,
+                        chartColors.darkOrange,
+                        chartColors.paleYellow
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                ...tooltipPlugin,
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        });
+
+        const movimentosCtx = document.getElementById('movimentosChart').getContext('2d');
+        new Chart(movimentosCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Movimento Antirracista', 'Movimento Feminista', 'Movimentos LGBTQIA+', 'Pautas Indígenas'],
+                datasets: [{
+                    label: 'Foco em Movimentos Sociais',
+                    data: [35, 30, 20, 15],
+                    backgroundColor: [
+                        chartColors.mediumCyan,
+                        chartColors.darkCyan,
+                        chartColors.lightCyan,
+                        chartColors.paleYellow
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                ...tooltipPlugin,
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        });
+
+        const ambienteCtx = document.getElementById('ambienteChart').getContext('2d');
+        new Chart(ambienteCtx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    ['Racismo Ambiental', 'e Justiça'], 
+                    ['Conflitos', 'Socioambientais', 'Rurais'],
+                    ['Desenvolvimento', 'Sustentável'], 
+                    'Impactos Urbanos', 
+                    'Legislação'
+                ],
+                datasets: [{
+                    label: 'Nível de Criticidade',
+                    data: [9, 7, 6, 8, 5],
+                    fill: true,
+                    backgroundColor: 'rgba(155, 34, 38, 0.2)',
+                    borderColor: chartColors.darkRed,
+                    pointBackgroundColor: chartColors.darkRed,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: chartColors.darkRed
+                }]
+            },
+            options: {
+                ...tooltipPlugin,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: '#ccc' },
+                        grid: { color: '#ddd' },
+                        pointLabels: {
+                            color: '#001219',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        ticks: {
+                            backdropColor: '#f8f9fa',
+                            color: '#666'
+                        }
+                    }
+                }
+            }
+        });
+
+        const midiaCtx = document.getElementById('midiaChart').getContext('2d');
+        new Chart(midiaCtx, {
+            type: 'line',
+            data: {
+                labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                datasets: [
+                    {
+                        label: 'Percepção de Desinformação',
+                        data: [40, 45, 55, 60, 70, 75, 80],
+                        borderColor: chartColors.red,
+                        backgroundColor: 'rgba(174, 32, 18, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Confiança na Mídia Tradicional',
+                        data: [65, 60, 58, 50, 48, 45, 42],
+                        borderColor: chartColors.darkCyan,
+                        backgroundColor: 'rgba(0, 95, 115, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: {
+                ...tooltipPlugin,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { ticks: { color: '#001219' } },
+                    y: { ticks: { color: '#001219' } }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
